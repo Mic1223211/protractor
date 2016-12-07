@@ -15,7 +15,11 @@ var childProcess = require('child_process');
  */
 var SELENIUM_DIR = path.resolve(__dirname, '../selenium');
 
+
 var versions = require('../config.json').webdriverVersions;
+if(process.platform === "darwin"){
+  versions = require('../config_mac.json').webdriverVersions;
+}
 
 /**
  * Get the major and minor version but ignore the patch (required for selenium
